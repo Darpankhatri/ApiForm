@@ -60,9 +60,10 @@ namespace ApiForm
 
             HttpClient client = new HttpClient();
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            HttpResponseMessage response = client.GetAsync("api/product/" + Int32.Parse(textSearch.Text)).Result;
             try
             {
+
+                HttpResponseMessage response = client.GetAsync("api/product/" + Int32.Parse(textSearch.Text)).Result;
                 Product emp = response.Content.ReadAsAsync<Product>().Result;
                 prolist = emp;
 
@@ -73,6 +74,8 @@ namespace ApiForm
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+
+            textSearch.Text = "";
 
         }
 
@@ -219,6 +222,7 @@ namespace ApiForm
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            label1.Text = "";
             panel2.Visible = false;
         }
     }

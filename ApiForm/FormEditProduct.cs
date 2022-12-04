@@ -63,13 +63,20 @@ namespace ApiForm
 
         private void btnupdate_Click(object sender, EventArgs e)
         {
-            Product product = new Product() { id = prolist.id, name = textName.Text, image = textImage.Text, price = Int16.Parse(textPrice.Text), stock = Int16.Parse(textStock.Text), description = textdesc.Text };
-            HttpClient client = new HttpClient();
-            client.BaseAddress = new Uri("http://127.0.0.1:8000/");
-            HttpResponseMessage response = client.PostAsJsonAsync("api/product-create", product).Result;
-            ApiResponse emp = response.Content.ReadAsAsync<ApiResponse>().Result;
-            MessageBox.Show(emp.message);
-            this.Close();
+            try
+            {
+                Product product = new Product() { id = prolist.id, name = textName.Text, image = textImage.Text, price = Int16.Parse(textPrice.Text), stock = Int16.Parse(textStock.Text), description = textdesc.Text };
+                HttpClient client = new HttpClient();
+                client.BaseAddress = new Uri("http://127.0.0.1:8000/");
+                HttpResponseMessage response = client.PostAsJsonAsync("api/product-create", product).Result;
+                ApiResponse emp = response.Content.ReadAsAsync<ApiResponse>().Result;
+                MessageBox.Show(emp.message);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
