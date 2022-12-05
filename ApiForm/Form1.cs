@@ -62,6 +62,7 @@ namespace ApiForm
             client.BaseAddress = new Uri("http://127.0.0.1:8000/");
             try
             {
+                
 
                 HttpResponseMessage response = client.GetAsync("api/product/" + Int32.Parse(textSearch.Text)).Result;
                 Product emp = response.Content.ReadAsAsync<Product>().Result;
