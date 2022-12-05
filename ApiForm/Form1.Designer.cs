@@ -54,6 +54,7 @@
             this.btnSubscribe = new System.Windows.Forms.Button();
             this.btnMessage = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
+            this.btnAzure = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -415,11 +416,27 @@
             this.btnProduct.UseVisualStyleBackColor = false;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
+            // btnAzure
+            // 
+            this.btnAzure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(184)))));
+            this.btnAzure.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAzure.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnAzure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAzure.ForeColor = System.Drawing.Color.White;
+            this.btnAzure.Location = new System.Drawing.Point(249, 118);
+            this.btnAzure.Name = "btnAzure";
+            this.btnAzure.Size = new System.Drawing.Size(76, 31);
+            this.btnAzure.TabIndex = 8;
+            this.btnAzure.Text = "Azure";
+            this.btnAzure.UseVisualStyleBackColor = false;
+            this.btnAzure.Click += new System.EventHandler(this.btnAzure_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
+            this.Controls.Add(this.btnAzure);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
@@ -471,6 +488,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnOrders;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnAzure;
     }
 }
 

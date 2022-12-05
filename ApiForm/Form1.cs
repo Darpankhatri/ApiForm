@@ -13,6 +13,7 @@ using System.Net;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Drawing.Imaging;
 using System.Reflection.Emit;
+using System.Data.Common;
 
 namespace ApiForm
 {
@@ -225,6 +226,29 @@ namespace ApiForm
         {
             label1.Text = "";
             panel2.Visible = false;
+        }
+
+        private void btnAzure_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                var httpClientHandler = new HttpClientHandler();
+                var httpClient = new HttpClient(httpClientHandler)
+                {
+                    BaseAddress = new Uri("https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure?name=darpan")
+                };
+                using (var response = httpClient.GetAsync("https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure?name=darpan"))
+                {
+                    string responseBody = response.Result.Content.ReadAsStringAsync().Result;
+                    MessageBox.Show(responseBody);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }
