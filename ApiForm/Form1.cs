@@ -26,6 +26,8 @@ namespace ApiForm
             InitializeComponent();
             panel2.Visible = false;
             panel4.Visible = false;
+            button1.Visible = false;
+            panel6.Visible = false;
 
 
         }
@@ -104,6 +106,8 @@ namespace ApiForm
             panel2.Visible = false;
             panel3.Visible = true;
             panel4.Visible = false;
+            panel6.Visible = false;
+
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -156,6 +160,9 @@ namespace ApiForm
                     panel3.Visible = false;
                     panel4.Visible = true;
 
+                    panel6.Visible = true;
+                    btnAzure.Visible = true;
+
                 }
 
             }
@@ -175,6 +182,7 @@ namespace ApiForm
 
             panel5.Visible = true;
             panel2.Visible = true;
+            panel6.Visible = false;
         }
 
         private void btnMessage_Click(object sender, EventArgs e)
@@ -188,6 +196,7 @@ namespace ApiForm
             dataGridView1.Refresh();
             panel2.Visible = true;
             panel5.Visible = false;
+            panel6.Visible = false;
 
         }
 
@@ -207,6 +216,7 @@ namespace ApiForm
             dataGridView1.Refresh();
             panel2.Visible = true;
             panel5.Visible = false;
+            panel6.Visible = false;
         }
 
         private void btnOrders_Click(object sender, EventArgs e)
@@ -220,35 +230,102 @@ namespace ApiForm
             dataGridView1.Refresh();
             panel2.Visible = true;
             panel5.Visible = false;
+            panel6.Visible = false;
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             label1.Text = "";
             panel2.Visible = false;
+            panel6.Visible = true;
+
         }
 
         private void btnAzure_Click(object sender, EventArgs e)
         {
             try
             {
+                string urla = "https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure";
+                if(textBox2.Text != "")
+                {
+                    urla = urla + "?name=" + textBox2.Text;
+                }
 
                 var httpClientHandler = new HttpClientHandler();
                 var httpClient = new HttpClient(httpClientHandler)
                 {
-                    BaseAddress = new Uri("https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure?name=darpan")
+                    BaseAddress = new Uri(urla)
                 };
-                using (var response = httpClient.GetAsync("https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure?name=darpan"))
+                using (var response = httpClient.GetAsync(urla))
                 {
                     string responseBody = response.Result.Content.ReadAsStringAsync().Result;
                     MessageBox.Show(responseBody);
+                    textBox2.Text = "";
                 }
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+                textBox2.Text = "";
             }
+            textBox2.Text = "";
+        }
+
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAzure_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                string urla = "https://hospitalazure20221205122105.azurewebsites.net/api/hospitalAzure";
+                if (textBox2.Text != "")
+                {
+                    urla = urla + "?name=" + textBox2.Text;
+                }
+
+                var httpClientHandler = new HttpClientHandler();
+                var httpClient = new HttpClient(httpClientHandler)
+                {
+                    BaseAddress = new Uri(urla)
+                };
+                using (var response = httpClient.GetAsync(urla))
+                {
+                    string responseBody = response.Result.Content.ReadAsStringAsync().Result;
+                    MessageBox.Show(responseBody);
+                    textBox2.Text = "";
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                textBox2.Text = "";
+            }
+            textBox2.Text = "";
+        }
+
+        private void but2azure_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -54,7 +54,10 @@
             this.btnSubscribe = new System.Windows.Forms.Button();
             this.btnMessage = new System.Windows.Forms.Button();
             this.btnProduct = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnAzure = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -63,6 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -97,6 +101,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(896, 123);
             this.panel1.TabIndex = 4;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label2
             // 
@@ -137,7 +142,7 @@
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.Controls.Add(this.panel5);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(140, 152);
+            this.panel2.Location = new System.Drawing.Point(136, 176);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(744, 266);
             this.panel2.TabIndex = 0;
@@ -245,7 +250,7 @@
             this.panel3.Controls.Add(this.btnLogin);
             this.panel3.Controls.Add(this.textEmail);
             this.panel3.Controls.Add(this.label5);
-            this.panel3.Location = new System.Drawing.Point(254, 201);
+            this.panel3.Location = new System.Drawing.Point(275, 204);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(427, 211);
             this.panel3.TabIndex = 5;
@@ -416,6 +421,31 @@
             this.btnProduct.UseVisualStyleBackColor = false;
             this.btnProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
+            // panel6
+            // 
+            this.panel6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel6.BackColor = System.Drawing.Color.White;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Controls.Add(this.textBox2);
+            this.panel6.Controls.Add(this.btnAzure);
+            this.panel6.Location = new System.Drawing.Point(315, 176);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(307, 162);
+            this.panel6.TabIndex = 4;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // textBox2
+            // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBox2.Location = new System.Drawing.Point(62, 57);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(185, 29);
+            this.textBox2.TabIndex = 0;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // btnAzure
             // 
             this.btnAzure.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(184)))));
@@ -423,23 +453,40 @@
             this.btnAzure.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAzure.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAzure.ForeColor = System.Drawing.Color.White;
-            this.btnAzure.Location = new System.Drawing.Point(249, 118);
+            this.btnAzure.Location = new System.Drawing.Point(101, 105);
             this.btnAzure.Name = "btnAzure";
             this.btnAzure.Size = new System.Drawing.Size(76, 31);
-            this.btnAzure.TabIndex = 8;
+            this.btnAzure.TabIndex = 1;
             this.btnAzure.Text = "Azure";
             this.btnAzure.UseVisualStyleBackColor = false;
             this.btnAzure.Click += new System.EventHandler(this.btnAzure_Click);
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(87)))), ((int)(((byte)(184)))));
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(92, 105);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 31);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Azure";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(896, 450);
-            this.Controls.Add(this.btnAzure);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
@@ -456,6 +503,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -488,6 +537,9 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Button btnOrders;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnAzure;
     }
 }
